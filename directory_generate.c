@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <assert.h>
 
 #define NAME_LENGTH_MIN 3
 #define NAME_LENGTH_MAX 10
@@ -18,6 +19,7 @@ struct directory {
 };
 
 void directory_data_print(const struct directory_data *data){
+    assert(data);
     for(int i=0;i<=NAME_LENGTH_MAX;++i){
         printf("%c",data->last_name[i]);
     }
@@ -31,6 +33,7 @@ void directory_data_print(const struct directory_data *data){
     }
 }
 void directory_data_random(struct directory_data *data){
+    assert(data);
     int last_name_length=(int)((rand()%(NAME_LENGTH_MAX-NAME_LENGTH_MIN))+NAME_LENGTH_MIN);
     int first_name_length=(int)((rand()%(NAME_LENGTH_MAX-NAME_LENGTH_MIN))+NAME_LENGTH_MIN);
     bool consonne=true;
@@ -197,6 +200,8 @@ void directory_destroy(struct directory *self){
     free(self);
 }
 void directory_add (struct directory *self, struct directory_data *data){
+    assert(self);
+    assert(data);
     self->data[self->size]=data;
     self->size++;
  }
