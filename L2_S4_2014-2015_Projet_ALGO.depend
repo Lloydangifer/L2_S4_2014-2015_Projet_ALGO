@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1425652335 source:/home/lloyd/Documents/Projets/L2_S4_2014-2015_Projet_ALGO/directory_generate.c
+	"directory_generate.h"
+
+1425653081 /home/lloyd/Documents/Projets/L2_S4_2014-2015_Projet_ALGO/directory_generate.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<assert.h>
+	<string.h>
+
+1426028875 source:/home/lloyd/Documents/Projets/L2_S4_2014-2015_Projet_ALGO/main.c
+	"directory_generate.h"
+	"directory_name_research.h"
+
+1426028782 /home/lloyd/Documents/Projets/L2_S4_2014-2015_Projet_ALGO/directory_name_research.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<assert.h>
+	<string.h>
+	<sys/types.h>
+	"directory_generate.h"
+
+1426029319 source:/home/lloyd/Documents/Projets/L2_S4_2014-2015_Projet_ALGO/directory_name_research.c
+	"directory_name_research.h"
+

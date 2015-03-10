@@ -31,6 +31,14 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="directory_generate.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="directory_generate.h" />
+		<Unit filename="directory_name_research.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="directory_name_research.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
