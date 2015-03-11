@@ -15,5 +15,5 @@ main.o : main.c
 clean:
 	rm -f *.o
 
-mrproper:
+mrproper: clean
 	rm -f ${TARGET}

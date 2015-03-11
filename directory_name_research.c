@@ -1,6 +1,6 @@
 #include "directory_name_research.h"
 
-void directory_search(const struct directory *self,const char *last_name){
+void directory_search(const struct directory *self,const char *last_name){ //search the last name with a full checking of the directory
     assert(self);
     assert(last_name);
     for(int i=0;i<self->size;i++){
@@ -9,17 +9,17 @@ void directory_search(const struct directory *self,const char *last_name){
         }
     }
 }
-void directory_sort(struct directory *self){
+void directory_sort(struct directory *self){ //call the other part function for the quicksort
     assert(self);
     directory_sort_part(self,0,self->size-1);
 }
-void directory_swap(struct directory *self,size_t i,size_t l){
+void directory_swap(struct directory *self,size_t i,size_t l){ //swap two directory_data
     assert(self);
     struct directory_data *temp=self->data[i];
     self->data[i]=self->data[l];
     self->data[l]=temp;
 }
-ssize_t directory_partition(struct directory *self, ssize_t start,ssize_t end){
+ssize_t directory_partition(struct directory *self, ssize_t start,ssize_t end){ //use the pivot to call the swap
     assert(self);
     ssize_t pivot_index=start;
     const char* pivot=self->data[pivot_index]->last_name;
@@ -34,7 +34,7 @@ ssize_t directory_partition(struct directory *self, ssize_t start,ssize_t end){
     directory_swap(self,l,end);
     return l;
 }
-void directory_sort_part(struct directory *self,ssize_t start,ssize_t end){
+void directory_sort_part(struct directory *self,ssize_t start,ssize_t end){ //call function directory_partition
     assert(self);
     if(start<end){
         ssize_t p=directory_partition(self,start,end);
@@ -42,12 +42,12 @@ void directory_sort_part(struct directory *self,ssize_t start,ssize_t end){
         directory_sort_part(self,p+1,end);
     }
 }
-void directory_search_opt(const struct directory *self,const char *last_name){
+void directory_search_opt(const struct directory *self,const char *last_name){ //optimized search. work in theory but in practice print nothing
     assert(self);
     assert(last_name);
     directory_search_opt_part(self,last_name,0,self->size);
 }
-void directory_search_opt_part(const struct directory *self,const char *last_name, size_t start, size_t end){
+void directory_search_opt_part(const struct directory *self,const char *last_name, size_t start, size_t end){ //part of the optimized search
     assert(self);
     assert(last_name);
     if(start==end){

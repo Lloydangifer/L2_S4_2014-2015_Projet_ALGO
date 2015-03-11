@@ -39,6 +39,13 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="directory_name_research.h" />
+		<Unit filename="index.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="index.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>

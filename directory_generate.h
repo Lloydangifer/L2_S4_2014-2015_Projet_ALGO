@@ -23,6 +23,7 @@ struct directory{
 };
 
 void directory_data_print(const struct directory_data *data);
+void directory_print(const struct directory *self);
 void directory_data_random(struct directory_data *data);
 void directory_create(struct directory *self);
 void directory_destroy(struct directory *self);

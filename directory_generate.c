@@ -1,10 +1,16 @@
 #include "directory_generate.h"
 
-void directory_data_print(const struct directory_data *data){
+void directory_data_print(const struct directory_data *data){ //print a directory_data
     assert(data);
     printf("%s %s: %s\n",data->last_name,data->first_name,data->telephone);
 }
-void directory_data_random(struct directory_data *data){
+void directory_print(const struct directory *self){ //print the full directory
+    assert(self);
+    for(int i=0;i<self->size;i++){
+        directory_data_print(self->data[i]);
+    }
+}
+void directory_data_random(struct directory_data *data){ //initialize a directory_data with random values matching the conditions
     assert(data);
     int last_name_length=(int)((rand()%(NAME_LENGTH_MAX-NAME_LENGTH_MIN)+1)+NAME_LENGTH_MIN);
     int first_name_length=(int)((rand()%(NAME_LENGTH_MAX-NAME_LENGTH_MIN)+1)+NAME_LENGTH_MIN);
@@ -176,12 +182,12 @@ void directory_data_random(struct directory_data *data){
     free(first_name);
     free(telephone);
 }
-void directory_create(struct directory *self){
+void directory_create(struct directory *self){ //initialize a directory
     self->data=NULL;
     self->size=0;
     self->capacity=0;
 }
-void directory_destroy(struct directory *self){
+void directory_destroy(struct directory *self){ //destroy a directory
     assert(self);
     for(int i=0 ;i<self->capacity;i++){
       free(self->data[i]);
@@ -189,14 +195,14 @@ void directory_destroy(struct directory *self){
     free(self->data);
     free(self);
 }
-void directory_add (struct directory *self, struct directory_data *data){
+void directory_add (struct directory *self, struct directory_data *data){ //add a directory_data to a directory
     assert(self);
     assert(data);
-    if(self->capacity==0){
+    if(self->capacity==0){ //if the directory is just initialized, set a basic capacity
         self->capacity+=10;
         self->data=calloc(self->capacity,sizeof(struct directory_data *));
     }
-    if(self->capacity==self->size){
+    if(self->capacity==self->size){ //if the directory is full, it grow
        self->capacity*=2;
        struct directory_data **temp=calloc(self->capacity,sizeof(struct directory_data *));
        memcpy(temp,self->data,sizeof(struct directory_data*)*self->size);
@@ -206,7 +212,7 @@ void directory_add (struct directory *self, struct directory_data *data){
     self->data[self->size]=data;
     self->size++;
  }
- void directory_random(struct directory *self, size_t n){
+ void directory_random(struct directory *self, size_t n){ //fills the directory with random directory_data
     assert(self);
     for(int i=0;i<n;i++){
         struct directory_data *data=malloc(sizeof(struct directory_data));
